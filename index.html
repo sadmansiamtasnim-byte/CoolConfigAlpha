@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoolConfig - Refrigerator Cooling System Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ========== HEADER ========== -->
+    <header class="app-header">
+      <div class="header-content">
+        <div class="logo-container">
+          <img
+            src="coolConfigLogo.png"
+            alt="CoolConfig Logo"
+            style="height: 60px; width: auto"
+          />
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN APPLICATION CONTAINER ========== -->
+    <main class="app-container">
+      <!-- ========== LEFT SIDEBAR: INPUT PARAMETERS ========== -->
+      <aside class="panel input-sidebar">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <span>🍋‍🟩</span>
+            Input Parameters
+          </h2>
+          <!-- <p class="panel-subtitle">Manual entry and configuration</p> -->
+        </div>
+
+        <!-- siam-->
+
+        <div class="dimensions-panel">
+          <!-- <div class="panel-header">Dimensions</div> -->
+          <div class="dimension-group">
+            <div class="group-title">REFRIGERATOR</div>
+
+          <div class="dimension-item">
+            <span class="dimension-label">FREEZER NET VOLUME</span>
+            <div class="dimension-value">
+              <input type="number" class="value-input" id="freezerNetVolume" value="100" min="0" step="1" />
+              <span class="value-unit">L</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">FRESHFOOD NET VOLUME</span>
+            <div class="dimension-value">
+              <input type="number" class="value-input" id="freshfoodNetVolume" value="200" min="0" step="1" />
+              <span class="value-unit">L</span>
+            </div>
+          </div>
+            <div class="dimension-item">
+              <span class="dimension-label">REF DEPTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="refDepth">280</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">REF HEIGHT</span>
+              <div class="dimension-value">
+                <span class="value-number" id="refHeight">540</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">REF WIDTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="refWidth">200</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dimension-group">
+            <div class="group-title">UPPER CABINET</div>
+            <div class="dimension-item">
+              <span class="dimension-label"
+                >UPPER CABINET TOP FOAM THICKNESS</span
+              >
+              <div class="dimension-value">
+                <span class="value-number" id="upperCabinetTopFoamThickness"
+                  >20</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label"
+                >UPPER CABINET BACK FOAM THICKNESS</span
+              >
+              <div class="dimension-value">
+                <span class="value-number" id="upperCabinetBackFoamThickness"
+                  >10</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">UPPER CABINET HEIGHT</span>
+              <div class="dimension-value">
+                <span class="value-number" id="upperCabinetHeight">160</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">UPPER CABINET DEPTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="upperCabinetDepth">260</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">UPPER CABINET WIDTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="upperCabinetWidth">200</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label"
+                >UPPER CABINET SIDE FOAM THICKNESS</span
+              >
+              <div class="dimension-value">
+                <span class="value-number" id="upperCabinetSideFoamThickness"
+                  >20</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">MIDDLE FOAM THICKNESS</span>
+              <div class="dimension-value">
+                <span class="value-number" id="middleFoamThickness">20</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dimension-group">
+            <div class="group-title">BOTTOM CABINET</div>
+            <div class="dimension-item">
+              <span class="dimension-label">BASE FOAM THICKNESS</span>
+              <div class="dimension-value">
+                <span class="value-number" id="baseFoamThickness">40</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label"
+                >BOTTOM CABINET BACK FOAM THICKNESS</span
+              >
+              <div class="dimension-value">
+                <span class="value-number" id="bottomCabinetBackFoamThickness"
+                  >10</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">BOTTOM CABINET HEIGHT</span>
+              <div class="dimension-value">
+                <span class="value-number" id="bottomCabinetHeight">300</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">BOTTOM CABINET DEPTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="bottomCabinetDepth">260</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">COMPRESSOR AREA HEIGHT</span>
+              <div class="dimension-value">
+                <span class="value-number" id="notchHeight">80</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">COMPRESSOR AREA DEPTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="notchWidth">70</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">BOTTOM CABINET WIDTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="bottomCabinetWidth">200</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label"
+                >BOTTOM CABINET SIDE FOAM THICKNESS</span
+              >
+              <div class="dimension-value">
+                <span class="value-number" id="bottomCabinetSideFoamThickness"
+                  >20</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">COMPRESSOR TOP FOAM THICKNESS</span>
+              <div class="dimension-value">
+                <span class="value-number" id="compressorTopFoamThickness"
+                  >0</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label"
+                >COMPRESSOR FRONT FOAM THICKNESS</span
+              >
+              <div class="dimension-value">
+                <span class="value-number" id="compressorFrontFoamThickness"
+                  >0</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dimension-group">
+            <div class="group-title">DOOR</div>
+            <div class="dimension-item">
+              <span class="dimension-label">UPPER DOOR LENGTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="upperDoorLength">320</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">UPPER DOOR WIDTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="upperDoorWidth">400</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">UPPER DOOR FOAM THICKNESS</span>
+              <div class="dimension-value">
+                <span class="value-number" id="upperDoorFoamThickness">60</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">BOTTOM DOOR LENGTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="bottomDoorLength">600</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">BOTTOM DOOR WIDTH</span>
+              <div class="dimension-value">
+                <span class="value-number" id="bottomDoorWidth">400</span>
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+            <div class="dimension-item">
+              <span class="dimension-label">BOTTOM DOOR FOAM THICKNESS</span>
+              <div class="dimension-value">
+                <span class="value-number" id="bottomDoorFoamThickness"
+                  >60</span
+                >
+                <span class="value-unit">mm</span>
+              </div>
+            </div>
+
+            <div class="dimension-group">
+              <div class="group-title">GASKET</div>
+              <div class="dimension-item">
+                <span class="dimension-label">UPPER GASKET LENGTH</span>
+                <div class="dimension-value">
+                  <span class="value-number" id="upperGasketHeight">320</span>
+                  <span class="value-unit">mm</span>
+                </div>
+              </div>
+              <div class="dimension-item">
+                <span class="dimension-label">BOTTOM GASKET LENGTH</span>
+                <div class="dimension-value">
+                  <span class="value-number" id="lowerGasketHeight">600</span>
+                  <span class="value-unit">mm</span>
+                </div>
+              </div>
+              <div class="dimension-item">
+                <span class="dimension-label">GASKET WIDTH</span>
+                <div class="dimension-value">
+                  <span class="value-number" id="upperGasketWidth">400</span>
+                  <span class="value-unit">mm</span>
+                </div>
+              </div>
+              <div class="dimension-item">
+                <span class="dimension-label">GASKET WALL THICKNESS</span>
+                <div class="dimension-value">
+                  <span class="value-number" id="gasketBorderThickness"
+                    >30</span
+                  >
+                  <span class="value-unit">mm</span>
+                </div>
+              </div>
+              <div class="dimension-item">
+                <span class="dimension-label">GASKET DEPTH</span>
+                <div class="dimension-value">
+                  <span class="value-number" id="upperGasketThicknessValue"
+                    >40</span
+                  >
+                  <span class="value-unit">mm</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ========== CENTER PANEL: GRAPHICAL WINDOW ========== -->
+      <section class="panel graphical-panel">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <span>🥑</span>
+            Interactive Design Window
+          </h2>
+          <!-- <p class="panel-subtitle">Visual parameter adjustment</p> -->
+        </div>
+        <!-- <div class="panel-content"> -->
+        <div class="main-wrapper">
+          <!-- <div class="graphical-canvas"> -->
+          <div class="views-container">
+            <!-- COLUMN 1: REF SIDE VIEW -->
+            <div class="column-1">
+              <div class="view-section">
+                <div class="view-label">REFRIGERATOR SIDE VIEW</div>
+                <div class="refrigerator-side-shape" id="container">
+                  <div
+                    class="edge edge-vertical container-edge"
+                    data-edge="right"
+                    data-shape="REFRIGERATOR-SIDE-SHAPE"
+                    data-view="side"
+                    style="left: 100%; bottom: 0; top: 0"
+                  ></div>
+                  <div
+                    class="edge edge-horizontal container-edge"
+                    data-edge="bottom"
+                    data-shape="REFRIGERATOR-SIDE-SHAPE"
+                    data-view="side"
+                    style="top: 100%; left: 0; right: 0"
+                  ></div>
+
+                  <div class="shape upper-cabinet-side-shape" id="shape1">
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="top"
+                      data-shape="UPPER-CABINET-SIDE-SHAPE"
+                      data-view="side"
+                    ></div>
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="bottom"
+                      data-shape="UPPER-CABINET-SIDE-SHAPE"
+                      data-view="side"
+                      style="top: 100%"
+                    ></div>
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="UPPER-CABINET-SIDE-SHAPE"
+                      data-view="side"
+                      style="left: 100%"
+                    ></div>
+                  </div>
+                  <div class="shape bottom-cabinet-side-shape" id="shape2">
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="top"
+                      data-shape="BOTTOM-CABINET-SIDE-SHAPE"
+                      data-view="side"
+                    ></div>
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="bottom"
+                      data-shape="BOTTOM-CABINET-SIDE-SHAPE"
+                      data-view="side"
+                      style="top: 100%"
+                    ></div>
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="BOTTOM-CABINET-SIDE-SHAPE"
+                      data-view="side"
+                      style="left: 100%"
+                    ></div>
+                    <div class="compressor-area-shape" id="cutout">
+                      <div
+                        class="edge edge-horizontal"
+                        data-edge="top"
+                        data-shape="COMPRESSOR-AREA-SHAPE"
+                        data-view="side"
+                      ></div>
+                      <div
+                        class="edge edge-vertical"
+                        data-edge="left"
+                        data-shape="COMPRESSOR-AREA-SHAPE"
+                        data-view="side"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Grey Rectangle (fixed to bottom-right corner) -->
+                  <div class="grey-rectangle" id="greyRectangle">
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="top"
+                      data-shape="GREY-RECTANGLE-SHAPE"
+                      data-view="side"
+                    ></div>
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="left"
+                      data-shape="GREY-RECTANGLE-SHAPE"
+                      data-view="side"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUMN 2: TOP VIEWS -->
+            <div class="column-2">
+              <!-- UPPER CABINET TOP VIEW -->
+              <div class="view-section">
+                <div class="view-label">UPPER CABINET TOP VIEW</div>
+                <div class="refrigerator-top-shape" id="containerTop">
+                  <div
+                    class="edge edge-vertical container-edge"
+                    data-edge="right"
+                    data-shape="REFRIGERATOR-TOP-SHAPE"
+                    data-view="top"
+                    style="left: 100%; bottom: 0; top: 0"
+                  ></div>
+                  <div
+                    class="edge edge-horizontal container-edge"
+                    data-edge="bottom"
+                    data-shape="REFRIGERATOR-TOP-SHAPE"
+                    data-view="top"
+                    style="top: 100%; left: 0; right: 0"
+                  ></div>
+
+                  <div class="upper-cabinet-top-shape" id="shapeTop">
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="top"
+                      data-shape="UPPER-CABINET-TOP-SHAPE"
+                      data-view="top"
+                    ></div>
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="bottom"
+                      data-shape="UPPER-CABINET-TOP-SHAPE"
+                      data-view="top"
+                      style="top: 100%"
+                    ></div>
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="UPPER-CABINET-TOP-SHAPE"
+                      data-view="top"
+                      style="left: 100%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- BOTTOM CABINET TOP VIEW -->
+              <div class="view-section">
+                <div class="view-label">BOTTOM CABINET TOP VIEW</div>
+                <div class="refrigerator-top-shape" id="containerBottom">
+                  <div
+                    class="edge edge-vertical container-edge"
+                    data-edge="right"
+                    data-shape="REFRIGERATOR-BOTTOM-SHAPE"
+                    data-view="bottom"
+                    style="left: 100%; bottom: 0; top: 0"
+                  ></div>
+                  <div
+                    class="edge edge-horizontal container-edge"
+                    data-edge="bottom"
+                    data-shape="REFRIGERATOR-BOTTOM-SHAPE"
+                    data-view="bottom"
+                    style="top: 100%; left: 0; right: 0"
+                  ></div>
+
+                  <div class="bottom-cabinet-top-shape" id="shapeBottom">
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="top"
+                      data-shape="BOTTOM-CABINET-TOP-SHAPE"
+                      data-view="bottom"
+                    ></div>
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="bottom"
+                      data-shape="BOTTOM-CABINET-TOP-SHAPE"
+                      data-view="bottom"
+                      style="top: 100%"
+                    ></div>
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="BOTTOM-CABINET-TOP-SHAPE"
+                      data-view="bottom"
+                      style="left: 100%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- COLUMN 3: DOOR FRONT VIEW -->
+            <div class="column-2">
+              <div class="view-section">
+                <div class="view-label">DOOR FRONT VIEW</div>
+                <div class="door-front-shape" id="containerDoor">
+                  <!-- Upper Door -->
+                  <div class="door-shape" id="upperDoor">
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="bottom"
+                      data-shape="UPPER-DOOR-SHAPE"
+                      data-view="door"
+                      style="top: 100%"
+                    ></div>
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="UPPER-DOOR-SHAPE"
+                      data-view="door"
+                      style="left: 100%"
+                    ></div>
+                  </div>
+                  <div class="door-seal" id="upperDoorSeal"></div>
+                  <div class="door-foam" id="upperDoorFoam">
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="UPPER-DOOR-FOAM"
+                      data-view="door"
+                      style="left: 100%"
+                    ></div>
+                  </div>
+
+                  <!-- Bottom Door -->
+                  <div class="door-shape" id="bottomDoor">
+                    <div
+                      class="edge edge-horizontal"
+                      data-edge="bottom"
+                      data-shape="BOTTOM-DOOR-SHAPE"
+                      data-view="door"
+                      style="top: 100%"
+                    ></div>
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="BOTTOM-DOOR-SHAPE"
+                      data-view="door"
+                      style="left: 100%"
+                    ></div>
+                  </div>
+                  <div class="door-seal" id="bottomDoorSeal"></div>
+                  <div class="door-foam" id="bottomDoorFoam">
+                    <div
+                      class="edge edge-vertical"
+                      data-edge="right"
+                      data-shape="BOTTOM-DOOR-FOAM"
+                      data-view="door"
+                      style="left: 100%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- COLUMN 4: GASKET VIEW -->
+            <div class="column-2">
+              <div class="view-section">
+                <div class="view-label">GASKET VIEW</div>
+                <div class="gasket-view-shape" id="containerGasket">
+                  <!-- Container edges -->
+                  <div
+                    class="edge edge-vertical container-edge"
+                    data-edge="right"
+                    data-shape="GASKET-CONTAINER-SHAPE"
+                    data-view="gasket"
+                    style="position: absolute; left: 100%; bottom: 0; top: 0"
+                  ></div>
+                  <div
+                    class="edge edge-horizontal container-edge"
+                    data-edge="bottom"
+                    data-shape="GASKET-CONTAINER-SHAPE"
+                    data-view="gasket"
+                    style="position: absolute; top: 100%; left: 0; right: 0"
+                  ></div>
+
+                  <!-- Upper Gasket Row -->
+                  <div class="gasket-row upper" id="upperGasketRow">
+                    <!-- Upper Gasket Frame -->
+                    <div class="gasket-frame" id="upperGasketFrame">
+                      <div
+                        class="edge edge-horizontal"
+                        data-edge="bottom"
+                        data-shape="UPPER-GASKET-FRAME"
+                        data-view="gasket"
+                        style="top: 100%"
+                      ></div>
+                      <div
+                        class="edge edge-vertical"
+                        data-edge="right"
+                        data-shape="UPPER-GASKET-FRAME"
+                        data-view="gasket"
+                        style="left: 100%"
+                      ></div>
+                    </div>
+
+                    <!-- Upper Gasket Thickness Indicator -->
+                    <div
+                      class="gasket-thickness-indicator"
+                      id="upperGasketThickness"
+                    >
+                      <div
+                        class="edge edge-vertical"
+                        data-edge="right"
+                        data-shape="UPPER-GASKET-THICKNESS"
+                        data-view="gasket"
+                        style="left: 100%"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Lower Gasket Row -->
+                  <div class="gasket-row lower" id="lowerGasketRow">
+                    <!-- Lower Gasket Frame -->
+                    <div class="gasket-frame" id="lowerGasketFrame">
+                      <div
+                        class="edge edge-horizontal"
+                        data-edge="bottom"
+                        data-shape="LOWER-GASKET-FRAME"
+                        data-view="gasket"
+                        style="top: 100%"
+                      ></div>
+                      <div
+                        class="edge edge-vertical"
+                        data-edge="right"
+                        data-shape="LOWER-GASKET-FRAME"
+                        data-view="gasket"
+                        style="left: 100%"
+                      ></div>
+                    </div>
+
+                    <!-- Lower Gasket Thickness Indicator -->
+                    <div
+                      class="gasket-thickness-indicator"
+                      id="lowerGasketThickness"
+                    >
+                      <div
+                        class="edge edge-vertical"
+                        data-edge="right"
+                        data-shape="LOWER-GASKET-THICKNESS"
+                        data-view="gasket"
+                        style="left: 100%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ========== GRAPHICAL CANVAS ENDS HERE ========== -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== RIGHT SIDEBAR: OUTPUT PARAMETERS ========== -->
+      <aside class="panel output-sidebar">
+        <div class="panel-header">
+          <h2 class="panel-title">
+            <span>🍇</span>
+            Output Results
+          </h2>
+          <!-- <p class="panel-subtitle">Manual entry and configuration</p> -->
+        </div>
+
+        <div class="dimension-group">
+          <div class="group-title">TRANSMISSION LOSS</div>
+          <div class="dimension-item">
+            <span class="dimension-label">UPPER CAB SIDE TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="frzSideCoolingLoad">280</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">UPPER CAB TOP TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="frzTopCoolingLoad">540</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">UPPER CAB BACK TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="frzBackCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">UPPER DOOR TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="frzDoorCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">UPPER GASKET TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="frzGasketCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">BOTTOM CAB SIDE TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="ffSideCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">BOTTOM CAB BASE TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="ffBaseCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">BOTTOM CAB BACK TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="ffBackCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">BOTTOM DOOR TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="ffDoorCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">BOTTOM GASKET TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="ffGasketCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">COMPRESSOR TOP TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="compTopCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">COMPRESSOR FRONT TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="compFrontCoolingLoad">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+                    <div class="dimension-item">
+            <span class="dimension-label">FRESHFOOD TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="ffTotalTransmission">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+                    <div class="dimension-item">
+            <span class="dimension-label">FREEZER TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="frzTotalTransmission">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+                    <div class="dimension-item">
+            <span class="dimension-label">REFRIGERATOR TL</span>
+            <div class="dimension-value">
+              <span class="value-number" id="grandTotalTransLoss">200</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dimension-group">
+          <div class="group-title">INFILTRATION LOSS</div>
+          <div class="dimension-item">
+            <span class="dimension-label">FREEZER INFILTRATION</span>
+            <div class="dimension-value">
+              <span class="value-number" id="infiltrationFRZ">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">FRESHFOOD INFILTRATION</span>
+            <div class="dimension-value">
+              <span class="value-number" id="infiltrationFF">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">TOTAL INFILTRATION</span>
+            <div class="dimension-value">
+              <span class="value-number" id="totalInfiltration">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dimension-group">
+          <div class="group-title">PRODUCT LOSS</div>
+          <div class="dimension-item">
+            <span class="dimension-label">FREEZER PRODUCT LOSS</span>
+            <div class="dimension-value">
+              <span class="value-number" id="frzProductLoss">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">FRESHFOOD PRODUCT LOSS</span>
+            <div class="dimension-value">
+              <span class="value-number" id="ffProductLoss">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">TOTAL PRODUCT LOSS</span>
+            <div class="dimension-value">
+              <span class="value-number" id="totalProductLoss">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dimension-group">
+          <div class="group-title">SUMMARY</div>
+          <div class="dimension-item">
+            <span class="dimension-label">TRANSMISSION LOSS</span>
+            <div class="dimension-value">
+              <span class="value-number" id="summaryTransmission">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">INFILTRATION LOSS</span>
+            <div class="dimension-value">
+              <span class="value-number" id="summaryInfiltration">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">PRODUCT LOSS</span>
+            <div class="dimension-value">
+              <span class="value-number" id="summaryProduct">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">GRAND TOTAL LOSS</span>
+            <div class="dimension-value">
+              <span class="value-number" id="grandTotalLoss">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+          <div class="dimension-item">
+            <span class="dimension-label">COMPRESSOR REQUIRED</span>
+            <div class="dimension-value">
+              <span class="value-number" id="compressorRequired">0.00</span>
+              <span class="value-unit">W</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Link to external JavaScript file for functionality -->
+    <script src="script.js"></script>
+  </body>
+</html>

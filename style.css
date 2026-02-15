@@ -1,0 +1,678 @@
+/* ========== RESET & BASE STYLES ========== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette - Industrial/Professional Theme */
+            --primary-blue: #316791;
+            --dark-blue: #17435c;
+            --light-blue: #82c3d7;
+            --bg-main: #f5f7fa;
+            --bg-panel: #ffffff;
+            --border-color: #d1d9e0;
+            --text-primary: #2c3e50;
+            --text-secondary: #6c757d;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========== HEADER ========== */
+        .app-header {
+            background-color: var(--bg-panel);
+            border-bottom: 2px solid var(--primary-blue);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .logo-container {
+            height: 50px;
+        }
+
+        .logo-container svg {
+            height: 100%;
+            width: auto;
+        }
+
+        /* ========== MAIN LAYOUT CONTAINER ========== */
+        .app-container {
+            max-width: 1920px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 320px 1fr 320px;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            min-height: calc(100vh - 90px);
+        }
+
+        /* ========== PANEL SHARED STYLES ========== */
+        .panel {
+            background-color: var(--bg-panel);
+            border-radius: 8px;
+            box-shadow: var(--shadow-md);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .panel-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .panel-subtitle {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .panel-content {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        /* ========== LEFT SIDEBAR - INPUT PARAMETERS ========== */
+        .input-sidebar {
+            border-left: 4px solid var(--primary-blue);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .input-section {
+            background-color: var(--bg-main);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .input-section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .input-placeholder {
+            color: var(--text-secondary);
+            font-style: italic;
+            padding: 1rem;
+            background-color: rgba(130, 195, 215, 0.1);
+            border-radius: 4px;
+            border-left: 3px solid var(--light-blue);
+        }
+
+        /* ========== CENTER PANEL - GRAPHICAL WINDOW ========== */
+        .graphical-panel {
+            border-top: 4px solid var(--primary-blue);
+            min-height: 600px;
+            overflow-x: auto;
+
+            /*siam added*/
+             /* display: flex; */
+            /* gap: 40px; */
+            /* align-items: flex-start; */
+        }
+
+            .main-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            max-width: 1400px;
+        }
+
+        .views-container {
+            display: flex;
+            gap: 30px;
+        }
+
+        .graphical-canvas {
+            flex: 1;
+            background-color: #ffffff;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            overflow: auto;
+        }
+
+        .graphical-canvas svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ========== RIGHT SIDEBAR - OUTPUT PARAMETERS ========== */
+        .output-sidebar {
+            border-right: 4px solid var(--primary-blue);
+            max-height: calc(100vh - 120px);
+            overflow-y: auto;
+        }
+
+        .output-section {
+            background-color: var(--bg-main);
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .output-section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .output-placeholder {
+            color: var(--text-secondary);
+            font-style: italic;
+            padding: 1rem;
+            background-color: rgba(49, 103, 145, 0.1);
+            border-radius: 4px;
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        /* ========== RESPONSIVE DESIGN ========== */
+        @media (max-width: 1400px) {
+            .app-container {
+                grid-template-columns: 280px 1fr 280px;
+                gap: 1rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .app-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+            }
+
+            .input-sidebar,
+            .output-sidebar {
+                border-left: none;
+                border-right: none;
+                border-top: 4px solid var(--primary-blue);
+            }
+
+            .graphical-panel {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .app-header {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo-container {
+                height: 40px;
+            }
+
+            .app-container {
+                padding: 0.75rem;
+                gap: 0.75rem;
+            }
+
+            .panel {
+                padding: 1rem;
+            }
+
+            .panel-title {
+                font-size: 1.1rem;
+            }
+
+            .graphical-panel {
+                min-height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                height: 35px;
+            }
+
+            .panel-title {
+                font-size: 1rem;
+            }
+
+            .graphical-panel {
+                min-height: 300px;
+            }
+        }
+
+        /* ========== SCROLLBAR STYLING ========== */
+        .panel-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .panel-content::-webkit-scrollbar-track {
+            background: var(--bg-main);
+            border-radius: 4px;
+        }
+
+        .panel-content::-webkit-scrollbar-thumb {
+            background: var(--light-blue);
+            border-radius: 4px;
+        }
+
+        .panel-content::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-blue);
+        }
+        /* siam */
+         .column-1 {
+            display: flex;
+            flex-direction: column;
+           
+        }
+
+        .column-2 {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .view-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .view-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .refrigerator-side-shape {
+            position: relative;
+            width: 280px;
+            height: 540px;
+            background-color: #d9d9d9;
+            padding: 20px;
+            padding-left: 0;
+            user-select: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .refrigerator-top-shape {
+            position: relative;
+            width: 280px;
+            height: 200px;
+            background-color: #d9d9d9;
+            padding: 20px;
+            padding-left: 0;
+            user-select: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .upper-cabinet-top-shape {
+            position: absolute;
+            background-color: #6b7a9e;
+        }
+
+        .bottom-cabinet-top-shape {
+            position: absolute;
+            background-color: #a4b0d9;
+        }
+
+        .door-front-shape {
+            position: relative;
+            width: 280px;
+            height: 540px;
+            background-color: #f5f5f5;
+            padding: 20px;
+            user-select: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+
+        .door-shape {
+            position: absolute;
+            background-color: #2c3e50;
+            left: 20px;
+        }
+
+        .door-seal {
+            position: absolute;
+            width: 5px;
+            top: 0;
+            bottom: 0;
+            background-color: #2c3e50;
+        }
+
+        .door-foam {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            background-color: #d9d9d9;
+        }
+
+        .shape {
+            position: absolute;
+            left: 0px;
+        }
+
+        .upper-cabinet-side-shape {
+            top: 20px;
+            width: 260px;
+            height: 160px;
+            background-color: #6b7a9e;
+        }
+
+        .bottom-cabinet-side-shape {
+            top: 200px;
+            width: 260px;
+            height: 300px;
+            background-color: #a4b0d9;
+        }
+
+        .compressor-area-shape {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 70px;
+            height: 80px;
+            background-color: #d9d9d9;
+        }
+
+        .grey-rectangle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 65px;
+            height: 90px;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 0 0 8px 0;
+        }
+
+        .edge {
+            position: absolute;
+            z-index: 10;
+        }
+
+        .edge-horizontal {
+            height: 8px;
+            left: 0;
+            right: 0;
+            cursor: ns-resize;
+            margin-top: -4px;
+        }
+
+        .edge-vertical {
+            width: 8px;
+            top: 0;
+            bottom: 0;
+            cursor: ew-resize;
+            margin-left: -4px;
+        }
+
+        .edge:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .edge.dragging {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .container-edge:hover {
+            background-color: rgba(107, 122, 158, 0.4);
+        }
+
+        .container-edge.dragging {
+            background-color: rgba(107, 122, 158, 0.6);
+        }
+
+            .panel-header {
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+         .dimensions-panel {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            min-width: 200px;
+        }
+
+        /* .panel-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e8ecef;
+        } */
+
+        .dimension-group {
+            margin-bottom: 24px;
+        }
+
+        .group-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #6b7a9e;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .dimension-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .dimension-item:last-child {
+            border-bottom: none;
+        }
+
+        .dimension-label {
+            font-size: 14px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .dimension-value {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .value-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+            min-width: 45px;
+            text-align: right;
+        }
+
+        .value-unit {
+            font-size: 12px;
+            color: #95a5a6;
+            font-weight: 500;
+        }
+
+        .value-input {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2c3e50;
+            width: 70px;
+            max-width: 70px;
+            text-align: right;
+            border: none;
+            border-radius: 4px;
+            padding: 2px 6px;
+            background-color: transparent;
+            transition: background-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        .value-input:hover {
+            background-color: rgba(130, 195, 215, 0.1);
+        }
+
+        .value-input:focus {
+            outline: none;
+            background-color: rgba(49, 103, 145, 0.05);
+        }
+
+        /* Hide spinner buttons */
+        .value-input::-webkit-inner-spin-button,
+        .value-input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* .value-input[type=number] {
+            -moz-appearance: textfield;
+        } */
+
+      /* ========== GASKET VIEW STYLES ========== */
+.gasket-view-shape {
+    position: relative;
+    width: 280px;
+    height: 540px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    user-select: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Gasket row container to keep frame and thickness indicator together */
+.gasket-row {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+.gasket-frame {
+    position: relative;
+    background-color: transparent;
+    border: 15px solid #2c3e50;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+
+.gasket-thickness-indicator {
+    position: relative;
+    background-color: #2c3e50;
+    flex-shrink: 0;
+}
+
+/* Initial sizing for upper gasket */
+.gasket-row.upper {
+    height: 160px;
+}
+
+.gasket-row.upper .gasket-frame {
+    width: 200px;
+    height: 100%;
+}
+
+.gasket-row.upper .gasket-thickness-indicator {
+    width: 20px;
+    height: 100%;
+}
+
+/* Initial sizing for lower gasket */
+.gasket-row.lower {
+    height: 300px;
+    flex: 1;
+}
+
+.gasket-row.lower .gasket-frame {
+    width: 200px;
+    height: 100%;
+}
+
+.gasket-row.lower .gasket-thickness-indicator {
+    width: 20px;
+    height: 100%;
+}
+
+/* Edge styles specific to gasket frames */
+.gasket-frame .edge {
+    background-color: transparent;
+}
+
+.gasket-frame .edge:hover {
+    background-color: rgba(44, 62, 80, 0.3);
+}
+
+.gasket-frame .edge.dragging {
+    background-color: rgba(44, 62, 80, 0.5);
+}
+
+/* Only right and bottom edges are draggable on gasket frames */
+.gasket-frame .edge-horizontal:not([data-edge="bottom"]) {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.gasket-frame .edge-vertical:not([data-edge="right"]) {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Single inner left edge for gasket wall thickness control */
+.wall-thickness-edge {
+    background-color: rgba(255, 165, 0, 0.4);
+    z-index: 15;
+    cursor: ew-resize;
+    width: 8px;
+    margin-left: 0;
+}
+
+.wall-thickness-edge:hover {
+    background-color: rgba(255, 165, 0, 0.7);
+}
+
+.wall-thickness-edge.dragging {
+    background-color: rgba(255, 165, 0, 0.9);
+}
